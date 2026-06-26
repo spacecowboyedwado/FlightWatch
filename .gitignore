@@ -1,0 +1,70 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Inline packages (pip install -e .)
+*.egg-info/
+
+### Virtual Environments ###
+.venv/
+venv/
+ENV/
+env/
+target/
+
+### FastAPI / Uvicorn / Database ###
+# Environment variables (Crucial for FastAPI config)
+.env
+.env.*
+!.env.example
+
+# Local databases (e.g., SQLite)
+*.db
+*.sqlite3
+
+# Log files
+*.log
+logs/
+
+### PyCharm / JetBrains ###
+.idea/
+*.iml
+.idea_modules/
+
+### Testing & Coverage ###
+.pytest_cache/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+### OS / System Files ###
+.DS_Store
+Thumbs.db
