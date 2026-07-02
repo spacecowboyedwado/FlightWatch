@@ -1,7 +1,6 @@
-from fastapi import FastAPI
-from main.config import Settings
 import requests
 from datetime import datetime, timedelta
+
 
 OPENSKY_TOKEN_URL = "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token"
 TOKEN_REFRESH_MARGIN = 30

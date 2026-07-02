@@ -1,8 +1,9 @@
-from fastapi import APIRouter, FastAPI, File, UploadFile, HTTPException
-from fastapi.openapi.utils import status_code_ranges
+from fastapi import APIRouter, File, UploadFile, HTTPException
 from starlette import status
 from starlette.status import HTTP_400_BAD_REQUEST
-from main.services.image_processor import ImageProcessor
+from backend.app.services.image_processor import ImageProcessor
+from backend.app.services.plane_identifier import IdentifyPlane
+
 router = APIRouter (
     prefix="/images",
     tags=["Images"]
@@ -25,7 +26,13 @@ async def upload_image(file: UploadFile = File(...)):
         #READ: Reading the file by grabbing raw binary data
         image_bytes = await file.read()
         new_processor = ImageProcessor(image_bytes)
-        lat, lon, heading, bearing = new_processor.run()
+        lat, lon, heading, bearing, unix_time = new_processor.run()
+
+        planeIdentifer = IdentifyPlane(lat, lon, heading, bearing, unix_time)
+        lePlane, laPlanes=  planeIdentifer.planeRanker()
+
+
+
 
 
 
@@ -33,14 +40,15 @@ async def upload_image(file: UploadFile = File(...)):
         # TODO: api_response = external_api.query(metadata)
 
         #TemporaRY mock response to prove the controller works
-        mock_response = {
-            "filename": file.filename,
-            "content_type": file.content_type,
-            "bytes_received": len(image_bytes),
-            "status": "Successfully intercepted by the controller!"
+        vital = {
+            "latitude": lat,
+            "longitude": lon,
+            "heading": heading,
+            "camera_bearing_ref": bearing
+
         }
 
-        return lat, lon, heading, bearing
+        return lePlane
 
     except Exception as e:
         raise HTTPException(

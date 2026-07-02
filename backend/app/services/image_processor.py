@@ -1,6 +1,7 @@
 from io import BytesIO
 from PIL import Image, ExifTags
 from pillow_heif import register_heif_opener
+from datetime import datetime
 
 
 register_heif_opener()
@@ -27,9 +28,6 @@ class ImageProcessor:
     def extract_metadata(self):
 
         self.image_file.seek(0)
-
-
-
 
         img = Image.open(self.image_file)
         raw_exif_data = img.getexif()
@@ -74,6 +72,22 @@ class ImageProcessor:
 
         return image_direction, image_direction_ref
 
+    def extractTime(self):
+        exif, exif_data = self.extract_metadata()
+
+        photo_date_time = exif.get("DateTime")
+
+        print("DateTime:", photo_date_time)
+
+        if photo_date_time:
+            dt = datetime.strptime(photo_date_time, "%Y:%m:%d %H:%M:%S")
+            unix_timestamp = int(dt.timestamp())
+
+            return unix_timestamp
+
+        else:
+            print("No DateTime found.")
+            return None
 
     def convert_to_degrees(self, value):
         # Converts latitude and longitude from degrees-minutes-seconds to decimal format
@@ -103,23 +117,16 @@ class ImageProcessor:
             longitude = -longitude
 
 
-
         return latitude, longitude
 
     def run(self):
         exif_data, raw_exif = self.extract_metadata()
         latitude, longitude = self.validate_data()
         camera_heading, camera_bearing_ref = self.extract_bearing(raw_exif)
+        unix_time = self.extractTime()
 
-        leng_data = {
-            "latitude": latitude,
-            "longitude": longitude,
-            "camera_heading": camera_heading,
-            "camera_bearing_ref": camera_bearing_ref
 
-        }
-
-        return leng_data
+        return latitude, longitude, camera_heading, camera_bearing_ref, unix_time
 
 
 
