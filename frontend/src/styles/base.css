@@ -1,0 +1,57 @@
+:root {
+  --bg: #f4f1eb;
+  --bg-card: #fffaf2;
+  --bg-dark: #111;
+  --fg: #111;
+  --fg-light: #fff;
+  --muted: #6f6a60;
+  --secondary: #3d3a35;
+  --dark-muted: #4c4943;
+  --grid-line: #444;
+  --border: #d8d2c7;
+  --stroke: 2px solid var(--fg);
+  --stroke-thin: 1px solid var(--border);
+  --shadow: 4px 4px 0 var(--fg);
+  --shadow-hover: 1px 1px 0 var(--fg);
+  --mono: "Courier New", Courier, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: .95;
+  letter-spacing: -4px;
+  font-weight: 900;
+}
+
+.card-label,
+.label,
+.preview-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.card-label,
+.preview-label {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.label {
+  font-size: 12px;
+  margin-bottom: 20px;
+}

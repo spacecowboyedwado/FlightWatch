@@ -1,0 +1,65 @@
+@media (max-width: 1024px) {
+  .hero,
+  .upload-wrap,
+  .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text {
+    padding: 60px 7%;
+    border-right: 0;
+    border-bottom: var(--stroke);
+  }
+
+  .hero-preview {
+    padding: 40px 7%;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .state-panel,
+  .docs-content {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    letter-spacing: -2px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .nav nav,
+  .buttons {
+    flex-direction: column;
+  }
+
+  .nav a {
+    margin-top: -1px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .buttons a {
+    justify-content: center;
+  }
+
+  .preview-header,
+  .flight-number,
+  .flight-route,
+  .preview-description,
+  .preview-grid div {
+    padding-inline: 22px;
+  }
+
+  .flight-number {
+    font-size: 48px;
+  }
+}

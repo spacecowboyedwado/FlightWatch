@@ -1,0 +1,10 @@
+.page-header {
+  padding: 60px 7% 50px;
+  background: var(--bg);
+  border-bottom: var(--stroke);
+}
+
+.page-header h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -2px;
+}

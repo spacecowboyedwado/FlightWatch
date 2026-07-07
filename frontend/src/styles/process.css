@@ -1,0 +1,66 @@
+.process {
+  padding: 90px 7%;
+  background: var(--bg);
+  border-bottom: var(--stroke);
+}
+
+.process-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process h2 {
+  max-width: 720px;
+  margin-bottom: 48px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: .95;
+  letter-spacing: -3px;
+  font-weight: 900;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--fg);
+  border: var(--stroke);
+}
+
+.process-card {
+  min-height: 260px;
+  padding: 42px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.process-card:nth-child(2) {
+  background: var(--bg-card);
+}
+
+.process-card span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.process-card h3 {
+  margin-top: 48px;
+  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.process-card p {
+  color: var(--secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.process-btn {
+  margin-top: 36px;
+}
