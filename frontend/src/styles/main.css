@@ -1,0 +1,10 @@
+/* src/styles/main.css */
+@import './base.css';
+@import './buttons.css';
+@import './nav.css';
+@import './hero.css';
+@import './pages.css';
+@import './upload.css';
+@import './docs.css';
+@import './process.css';
+@import './responsive.css';

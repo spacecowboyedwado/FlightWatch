@@ -39,7 +39,7 @@ target/
 
 ### FastAPI / Uvicorn / Database ###
 # Environment variables (Crucial for FastAPI config)
-backend/.env
+.env
 .env.*
 !.env.example
 

@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",  # Default for Create React App
-    "http://localhost:5173",  # Default for Vite
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 
 app.add_middleware(

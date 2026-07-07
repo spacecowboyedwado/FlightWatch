@@ -1,3 +1,11 @@
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
 @media (max-width: 1024px) {
   .hero,
   .upload-wrap,
@@ -23,32 +31,80 @@
   .docs-content {
     border-left: 0;
   }
+
+  .nav {
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
   h1 {
+    font-size: clamp(42px, 12vw, 54px);
+    line-height: 0.95;
     letter-spacing: -2px;
   }
 
   .nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    gap: 12px;
   }
 
-  .nav nav,
-  .buttons {
+  .logo {
+    width: auto;
+    text-align: left;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav nav {
+    display: none;
     flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: var(--stroke);
+    z-index: 100;
+  }
+
+  .nav nav.mobile-open {
+    display: flex;
   }
 
   .nav a {
-    margin-top: -1px;
-    margin-left: 0;
-    text-align: center;
+    width: 100%;
+    padding: 16px 5%;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: var(--stroke);
   }
 
-  .buttons a {
-    justify-content: center;
+  .page-header,
+  .hero-text {
+    padding: 48px 5%;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .hero-preview {
+    padding: 24px 5%;
   }
 
   .preview-header,
@@ -56,10 +112,33 @@
   .flight-route,
   .preview-description,
   .preview-grid div {
-    padding-inline: 22px;
+    padding-inline: 20px;
   }
 
   .flight-number {
-    font-size: 48px;
+    font-size: 44px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dropzone,
+  .state-panel {
+    min-height: auto;
+    padding: 36px 5%;
+  }
+
+  .docs-nav {
+    padding: 24px;
+  }
+
+  .docs-content {
+    padding: 32px 5%;
   }
 }
